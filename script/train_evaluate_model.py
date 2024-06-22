@@ -7,20 +7,21 @@ from tensorflow.keras.callbacks import EarlyStopping
 
 def main():
     train_ds, val_ds, test_ds = create_data_generators(config.TRAIN_DIR, config.VAL_DIR, config.TEST_DIR, config.IMAGE_SIZE, config.BATCH_SIZE, config.RANDOM_SEED)
-    
     model = build_model(config.IMAGE_SIZE)
-    
+
+    #S'arretera lorsque il trouvera une meilleur evaluation
     early_stopping = EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True, min_delta=0.001, verbose=1)
-    
+    #Pour l'historique 
     history = model.fit(train_ds, epochs=config.EPOCHS, validation_data=val_ds, callbacks=[early_stopping])
-    
+
+    #Sauvegardons le model
     model.save(config.MODEL_SAVE_PATH)
     
-    # Évaluer le modèle
+    # Évaluons le modèle
     test_loss, test_acc = model.evaluate(test_ds)
     print(f'Test accuracy: {test_acc}')
     
-    # Générer la documentation avec pydoc
+    # Générons la documentation avec pydoc
     import pydoc
 
     # Créer le dossier 'doc' s'il n'existe pas
@@ -37,6 +38,5 @@ def main():
         os.remove(f'{module}.html')
         with open(output_path, 'w') as f:
             f.write(content)
-
 if __name__ == '__main__':
     main()
