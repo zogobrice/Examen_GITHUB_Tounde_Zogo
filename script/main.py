@@ -14,13 +14,13 @@ def run_script(script_path):
         print(result.stderr)
 
 def main():
-    print("1. Entraînement et évaluation")
+    print("1. Entraînons et évaluons notre model")
     run_script(TRAIN_EVALUATE_MODEL_SCRIPT)
     
     print("2. Évaluons notre modèle sur les données de test")
     run_script(TEST_EVALUATE_MODEL_SCRIPT)
     
-    print("3. Évaluation du modèle sur les données de validation")
+    print("3. Évaluons notre modèle sur les données de validation")
     run_script(VAL_EVALUATE_MODEL_SCRIPT)
 
 if __name__ == '__main__':
