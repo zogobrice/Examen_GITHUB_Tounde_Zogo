@@ -14,7 +14,7 @@ EPOCHS = 15
 LEARNING_RATE = 0.001
 
 # Chemin pour sauvegarder le modèle
-MODEL_SAVE_PATH = os.path.join(BASE_DIR, 'model', 'model.h5')
+MODEL_SAVE_PATH = os.path.join(BASE_DIR, 'model', 'model_final.h5')
 
 
 EMAIL_SMTP_SERVER = 'smtp.example.com'
