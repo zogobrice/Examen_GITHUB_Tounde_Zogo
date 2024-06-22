@@ -8,7 +8,7 @@ from email.mime.text import MIMEText
 def send_email():
     user = os.getenv('EMAIL_USER')
     password = os.getenv('EMAIL_PASS')
-    recipients = ['zogobrice20@gmail.com']
+    recipients = ['zogobrice20@gmail.com', 'evarisfomekong@gmail.com']
 
     msg = MIMEMultipart()
     msg['From'] = user
@@ -39,7 +39,7 @@ def send_email():
     except Exception as e:
         print(f"Error: {e}")
 
-    # Clean up the zip file
+    # effacer le fichier zippé
     os.remove(zip_filename)
 
 if __name__ == '__main__':
