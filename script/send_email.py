@@ -8,7 +8,7 @@ from email.mime.text import MIMEText
 def send_email():
     user = os.getenv('EMAIL_USER')
     password = os.getenv('EMAIL_PASS')
-    recipients = ['hesedtayawelba@gmail.com', 'zogobrice20@gmail.com']
+    recipients = ['zogobrice20@gmail.com']
 
     msg = MIMEMultipart()
     msg['From'] = user
